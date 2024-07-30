@@ -1,0 +1,56 @@
+.animated-border {
+  border: 3px solid;
+  border-image: linear-gradient(
+      45deg,
+      red,
+      orange,
+      yellow,
+      green,
+      blue,
+      indigo,
+      violet
+    )
+    1;
+  animation: border-animation 5s infinite linear;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes border-animation {
+  0% {
+    border-image-source: linear-gradient(
+      45deg,
+      red,
+      orange,
+      yellow,
+      green,
+      blue,
+      indigo,
+      violet
+    );
+  }
+  100% {
+    border-image-source: linear-gradient(
+      45deg,
+      violet,
+      indigo,
+      blue,
+      green,
+      yellow,
+      orange,
+      red
+    );
+  }
+}
+body {
+  background-color: #ffffff;
+}
+.settings {
+  width: 80px;
+  height: 80px;
+  background-color: #ffffff;
+  border: 3px solid black;
+}
+.container {
+  width: 500px;
+  height: 500px;
+}
