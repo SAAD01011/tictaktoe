@@ -13,25 +13,89 @@
     <title>Tic Tac To</title>
   </head>
   <body>
-    <div class="container pt-5">
+    <div class="container bg-secondary pt-5">
       <h1 class="text-center pt-2">TIC TAC TO</h1>
       <div class="row justify-content-center pt-3">
-        <button class="settings"></button>
-        <button class="settings"></button>
-        <button class="settings"></button>
+        <h1 id="player" class="text-center"></h1>
+        <button class="settings" onclick="box(0)" id="box0"></button>
+        <button class="settings" onclick="box(1)" id="box1"></button>
+        <button class="settings" onclick="box(2)" id="box2"></button>
       </div>
       <div class="row justify-content-center">
-        <button class="settings"></button>
-        <button class="settings"></button>
-        <button class="settings"></button>
+        <button class="settings" onclick="box(3)" id="box3"></button>
+        <button class="settings" onclick="box(4)" id="box4"></button>
+        <button class="settings" onclick="box(5)" id="box5"></button>
       </div>
       <div class="row justify-content-center">
-        <button class="settings"></button>
-        <button class="settings"></button>
-        <button class="settings"></button>
+        <button class="settings" onclick="box(6)" id="box6"></button>
+        <button class="settings" onclick="box(7)" id="box7"></button>
+        <button class="settings" onclick="box(8)" id="box8"></button>
+        <h1 id="result" class="text-center"></h1>
       </div>
-      <!-- <div class="row animated-border">wsqwwsws</div>
-      <div class="row animated-border">wddws</div> -->
     </div>
+    <script>
+      let boolen = true;
+      let array = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+      function box(indexs) {
+        let result;
+        let ss = "box" + indexs;
+        console.log(ss);
+
+        let player1 = "x";
+        let player2 = "O";
+        if (document.getElementById(ss).innerHTML == "") {
+          if (boolen == true) {
+            document.getElementById(
+              "player"
+            ).innerHTML = `CURRENT PLAYER IS "X"`;
+            array[indexs] = "x";
+            document.getElementById(ss).innerHTML = "X";
+            boolen = false;
+          } else {
+            document.getElementById(
+              "player"
+            ).innerHTML = `CURRENT PLAYER IS "O" `;
+            document.getElementById(ss).innerHTML = "O";
+            boolen = true;
+            array[indexs] = "O";
+          }
+        }
+        console.log(array);
+        if (array[0] == array[1] && array[1] == array[2]) {
+          document.getElementById("result").innerHTML = `YOU WON THE MATCH`;
+          console.log("you win");
+          return;
+        } else if (array[3] == array[4] && array[4] == array[5]) {
+          document.getElementById("result").innerHTML = `YOU WON THE MATCH`;
+          console.log("you win");
+          return;
+        } else if (array[6] == array[7] && array[7] == array[8]) {
+          document.getElementById("result").innerHTML = `YOU WON THE MATCH`;
+          console.log("you win");
+
+          return;
+        } else if (array[0] == array[4] && array[4] == array[8]) {
+          document.getElementById("result").innerHTML = `YOU WON THE MATCH`;
+          console.log("you win");
+          return;
+          // } else if (array[0] == array[4] && array[4] == array[6]) {
+          //   document.getElementById("result").innerHTML = `YOU WON THE MATCH`;
+          //   console.log("you win");
+          //   return;
+        } else if (array[0] == array[3] && array[3] == array[6]) {
+          document.getElementById("result").innerHTML = `YOU WON THE MATCH`;
+          console.log("you win");
+          return;
+        } else if (array[1] == array[4] && array[4] == array[7]) {
+          document.getElementById("result").innerHTML = `YOU WON THE MATCH`;
+          console.log("you win");
+          return;
+        } else if (array[2] == array[5] && array[5] == array[8]) {
+          document.getElementById("result").innerHTML = `YOU WON THE MATCH`;
+          console.log("you win");
+          return;
+        }
+      }
+    </script>
   </body>
 </html>
